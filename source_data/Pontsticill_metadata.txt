@@ -1,0 +1,87 @@
+sample-id	Water_Company	Site_Name	Site_Description	Reservoir	Date	Month	Volume_mL	Time_of_sampling	Filter_Type	Depth_m	Depth_category
+#q2:types	categorical	categorical	categorical	categorical	categorical	categorical	numeric	categorical	categorical	numeric	categorical
+FL_WW_298_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	03_10_2024	OCT	500	11_30_00	Smith_Root	0	
+FL_WW_299_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	03_10_2024	OCT	500	11_50_00	Smith_Root	0	
+FL_WW_300_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	03_10_2024	OCT	500	12_10_00	Smith_Root	0	
+FL_WW_308_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	17_10_2024	OCT	500	10_45_00	Smith_Root	0	
+FL_WW_309_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	17_10_2024	OCT	500	11_10_00	Smith_Root	0	
+FL_WW_310_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	17_10_2024	OCT	500	11_27_00	Smith_Root	0	
+FL_WW_316_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	30_10_2024	OCT	520	09_00_00	Smith_Root		
+FL_WW_320_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	31_10_2024	OCT	500	10_35_00	Smith_Root	0	
+FL_WW_321_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	31_10_2024	OCT	500	10_52_00	Smith_Root	0	
+FL_WW_322_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	31_10_2024	OCT	500	10_57_00	Smith_Root	0	
+FL_WW_330_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	14_11_2024	NOV	500	10_30_00	Smith_Root	0	
+FL_WW_331_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	14_11_2024	NOV	500	10_47_00	Smith_Root	0	
+FL_WW_332_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	14_11_2024	NOV	500	10_59_00	Smith_Root	0	
+FL_WW_338_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	15_11_2024	NOV	500	11_43_00	Smith_Root		
+FL_WW_340_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	27_11_2024	NOV	500		Smith_Root		
+FL_WW_344_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	28_11_2024	NOV	460	10_43_00	Smith_Root	0	
+FL_WW_345_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	28_11_2024	NOV	510	10_59_00	Smith_Root	0	
+FL_WW_346_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	28_11_2024	NOV	500	11_10_00	Smith_Root	0	
+FL_WW_435_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	29_05_2025	MAY	500	10_14_00	Nalgene	0	
+FL_WW_436_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	29_05_2025	MAY	500	10_29_00	Nalgene	0	
+FL_WW_437_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	29_05_2025	MAY	500	10_39_00	Nalgene	0	
+FL_WW_439_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	28_05_2025	MAY	500	11_25_00	Nalgene		middle
+FL_WW_447_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	12_06_2025	JUNE	500	10_06_00	Nalgene	0	
+FL_WW_448_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	12_06_2025	JUNE	500	10_20_00	Nalgene	0	
+FL_WW_449_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	12_06_2025	JUNE	500	10_33_00	Nalgene	0	
+FL_WW_451_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	11_06_2025	JUNE	500	10_15_00	Nalgene		
+FL_WW_459_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	26_06_2025	JUNE	500	10_01_00	Nalgene	0	
+FL_WW_460_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	26_06_2025	JUNE	500	10_14_00	Nalgene	0	
+FL_WW_461_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	26_06_2025	JUNE	500	10_24_00	Nalgene	0	
+FL_WW_463_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	25_06_2025	JUNE	500		Nalgene		middle
+FL_WW_471_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	10_07_2025	JULY	500	10_01_00	Nalgene	0	
+FL_WW_472_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	10_07_2025	JULY	500	10_17_00	Nalgene	0	
+FL_WW_473_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	10_07_2025	JULY	500	10_27_00	Nalgene	0	
+FL_WW_475_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	09_07_2025	JULY	500	11_50_00	Nalgene		
+FL_WW_489_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	24_07_2025	JULY	500	10_10_00	Nalgene	0	
+FL_WW_490_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	24_07_2025	JULY	500	10_24_00	Nalgene	0	
+FL_WW_491_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	24_07_2025	JULY	500	10_34_00	Nalgene	0	
+FL_WW_493_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	23_07_2025	JULY	500	12_30_00	Nalgene		
+FL_WW_507_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	07_08_2025	AUG	500	10_16_00	Nalgene	0	
+FL_WW_508_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	07_08_2025	AUG	500	10_31_00	Nalgene	0	
+FL_WW_509_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	07_08_2025	AUG	500	10_42_00	Nalgene	0	
+FL_WW_511_A_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	07_08_2025	AUG	500	08_28_00	Nalgene		
+FL_WW_511_B_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	07_08_2025	AUG	500	08_28_00	Nalgene		
+FL_WW_511_C_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	07_08_2025	AUG	500	08_28_00	Nalgene		
+FL_WW_524_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	21_08_2025	AUG	500	10_01_00	Nalgene	0	
+FL_WW_525_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	21_08_2025	AUG	500	10_14_00	Nalgene	0	
+FL_WW_526_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	21_08_2025	AUG	500	10_25_00	Nalgene	0	
+FL_WW_528_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	20_08_2025	AUG	500	09_47_00	Nalgene		
+FL_WW_535_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	04_09_2025	SEPT	500	10_12_00	Nalgene	0	
+FL_WW_536_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	04_09_2025	SEPT	500	10_27_00	Nalgene	0	
+FL_WW_537_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	04_09_2025	SEPT	500	10_38_00	Nalgene	0	
+FL_WW_539_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	03_09_2025	SEPT	500	12_10_00	Nalgene		middle
+FL_WW_547_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	18_09_2025	SEPT	500	10_13_00	Nalgene	0	
+FL_WW_548_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	18_09_2025	SEPT	500	10_20_00	Nalgene	0	
+FL_WW_549_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	18_09_2025	SEPT	500	10_39_00	Nalgene	0	
+FL_WW_551_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	17_09_2025	SEPT	500	13_15_00	Nalgene		middle
+FL_WW_559_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	02_10_2025	OCT	500	10_05_00	Nalgene	0	
+FL_WW_560_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	02_10_2025	OCT	500	10_19_00	Nalgene	0	
+FL_WW_561_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	02_10_2025	OCT	500	10_32_00	Nalgene	0	
+FL_WW_563_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	01_10_2025	OCT	500	11_40_00	Nalgene		middle
+FL_WW_571_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	16_10_2025	OCT	500	10_15_00	Nalgene	0	
+FL_WW_572_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	16_10_2025	OCT	500	10_28_00	Nalgene	0	
+FL_WW_573_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	16_10_2025	OCT	500	10_40_00	Nalgene	0	
+FL_WW_575_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	15_10_2025	OCT	500	09_18_00	Nalgene		
+FL_WW_583_16S	DCWW	Site_04	Pontsticill_Top	Pontsticill	30_10_2025	OCT	500	10_00_00	Nalgene	0	
+FL_WW_584_16S	DCWW	Site_05	Pontsticill_Mid	Pontsticill	30_10_2025	OCT	500	10_13_00	Nalgene	0	
+FL_WW_585_16S	DCWW	Site_06	Pontsticill_Bottom	Pontsticill	30_10_2025	OCT	500	10_25_00	Nalgene	0	
+FL_WW_587_16S	DCWW	Pontsticill_draw_off	Draw-off-tower	Pontsticill	29_10_2025	OCT	500	09_10_00	Nalgene		top
+EX_CON_1_16S			Ext_Control								
+EX_CON_2_16S			Ext_Control								
+EX_CON_3_16S			Ext_Control								
+EX_CON_4_16S			Ext_Control								
+EX_Con_44_16S			Ext_Control								
+Ex_Con_45_16S			Ext_Control								
+Ex_Con_46_16S			Ext_Control								
+Ex_Con_47_16S			Ext_Control								
+EX_CON_5_16S			Ext_Control								
+EX_Con_6_16S			Ext_Control								
+EX_Con_7_16S			Ext_Control								
+EX_Con_8_16S			Ext_Control								
+Ex_Con_9_16S			Ext_Control								
+PCR_CON_1_16S			PCR_Control								
+PCR_CON_2_16S			PCR_Control								
+PCR_CON_3_16S			PCR_Control								
+PCR_CON_4_16S			PCR_Control								
