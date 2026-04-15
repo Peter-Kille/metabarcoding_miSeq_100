@@ -14,7 +14,7 @@ source config/programs
 # PROCESS - File transfer
 sbatch -d singleton --error="${log}/1-preprocess_%J.err" --output="${log}/1-preprocess_%J.out" --job-name=${NAME} --partition=${PART} "${moduledir}/1-preprocess.sh"
 
-samples=$( tail -n +2 ${sourcedir}/${manifest} | cut -f1 )
+samples=$( tail -n +2 ${sourcedir}/${manifest} | cut -f2 -d,)
 
 export samples
 export sample_array=($samples)
@@ -41,6 +41,8 @@ sbatch -d singleton --error="${log}/2A-rawqc_%J.err" --output="${log}/2A-rawqc_%
 sbatch -d singleton --error="${log}/2B-fastp_%J.err" --output="${log}/2B-fastp_%J.out" --"array=0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2B-fastp_array.sh"  
 
 sbatch -d singleton --error="${log}/2C-trimqc_%J.err" --output="${log}/2C-trimqc_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2C-fastqc-trim.sh"
+
+sbatch -d singleton --error="${log}/2D-cut_%J.err" --output="${log}/2D-cut_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2D-cutadapt.sh"
 
 # Step 3: Qiime2 - import, QC
 # Input into qiime and run QC.

@@ -17,18 +17,18 @@ echo "\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}"
 # Write jobscript to output file (good for reproducibility)
 cat $0
 
-module load ${fastp_module}
+module load ${cutadapt_module}
 
 sample_array=($samples)
 base=${sample_array[$SLURM_ARRAY_TASK_ID]}
 
-fastp -q 20 -u 10 --cut_right \
-      --merge \
-      --detect_adapter_for_pe \
-      -i ${rawdir}/${base}_1.fastq.gz \
-      -I ${rawdir}/${base}_2.fastq.gz \
-      -o ${trimdir}/${base}_trim_1.fastq.gz \
-      -O ${trimdir}/${base}_trim_2.fastq.gz \
-      --merged_out ${trimdir}/${base}_merge.fastq.gz \
-      -j ${trimdir}/${base}_trim.json \
-      -h ${trimdir}/${base}_trim.html
+cutadapt --cores ${SLURM_CPUS_PER_TASK} \
+	-g ^GTGCCAGCMGCCGCGGTAA \
+	-a GGACTACHVGGGTWTCTAAT$ \
+	-e 0.1 \
+	-q 30 \
+	--minimum-length 240 \
+	--maximum-length 300 \
+	--discard-untrimmed \
+	-o "${cutdir}/${base}_merge_cut.fastq.gz" \
+	"${trimdir}/${base}_merge.fastq.gz"

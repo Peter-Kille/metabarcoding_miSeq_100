@@ -22,4 +22,4 @@ module load ${fastqc_module}
 sample_array=($samples)
 base=${sample_array[$SLURM_ARRAY_TASK_ID]}
 
-fastqc -t 2 ${trimdir}/${base}_trim_1.fastq.gz ${trimdir}/${base}_trim_2.fastq.gz -o ${trimqc}
+fastqc -t 1 ${trimdir}/${base}_merge.fastq.gz -o ${trimqc}

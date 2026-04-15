@@ -77,6 +77,14 @@ if [[ ! -d "${trimqc}" ]]; then
 fi
 export trimqc
 
+
+#STEP 2D: remove adapters
+cutdir="${workdir}/cutdir"
+if [[ ! -d "${cutdir}" ]]; then
+        mkdir -p "${cutdir}"
+fi
+export cutdir
+
 #STEP 4: QIIME INPUT and QC
 q2_input="${workdir}/q2_input"
 if [[ ! -d "${q2_input}" ]]; then

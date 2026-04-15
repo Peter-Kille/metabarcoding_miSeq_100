@@ -16,13 +16,15 @@ echo "\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}"
 echo "\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}"
 
 # read in sample and read names and move and rename samples into workdir
-tail -n +2 ${sourcedir}/"${manifest}" | while IFS=$'\t' read -r sample read1 read2 rest; do
+touch ${sourcedir}/working_manifest.csv
 
-echo ${sample}
-echo ${read1}
-echo ${read2}
-#cp ${read1} ${rawdir}/${sample}_1.fastq.gz
-#cp ${read2} ${rawdir}/${sample}_2.fastq.gz
+printf "sample-id\tabsolute-filepath\n" >> ${sourcedir}/working_manifest.tsv
+
+tail -n +2 ${sourcedir}/"${manifest}" | while IFS=$',' read -r sample file; do
+
+printf "${sample}\t${cutdir}/${file}_merge_cut.fastq.gz\n" >> ${sourcedir}/working_manifest.tsv
+
+cp ${sourcedir}/${file}_R1.fastq.gz ${rawdir}/${file}_1.fastq.gz
+cp ${sourcedir}/${file}_R2.fastq.gz ${rawdir}/${file}_2.fastq.gz
 
 done
-

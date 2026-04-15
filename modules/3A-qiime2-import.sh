@@ -21,9 +21,9 @@ cat $0
 module load ${q2_module}
 
 qiime tools import \
-     --type 'SampleData[PairedEndSequencesWithQuality]' \
-     --input-path ${sourcedir}/${manifest} \
-     --input-format PairedEndFastqManifestPhred33V2 \
+     --type 'SampleData[SequencesWithQuality]' \
+     --input-path ${sourcedir}/working_manifest.tsv \
+     --input-format SingleEndFastqManifestPhred33V2 \
      --output-path "${q2_input}/${NAME}_demux.qza"
 
 qiime demux summarize \

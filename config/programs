@@ -6,16 +6,21 @@ module is-avail ${fastqc_module} || { echo "${fastqc_module} not avalible check 
 export fastqc_module
 
 #2B fastp trim
-fastp_module="fastp/v0.20"
+fastp_module="fastp/0.23.4-mr6qifo"
 module is-avail ${fastp_module} || { echo "${fastp_module} not avalible check config.parameters_all file" ; exit 1; }
 export fastp_module
+
+#2D cutadapt
+cutadapt_module="cutadapt/4.1"
+module is-avail ${cutadapt_module} || { echo "${cutadapt_module} not avalible check config.parameters_all file" ; exit 1; }
+export cutadapt_module
 
 #STEPS 4-5: QIIME 
 q2_module="qiime2/2024.10-conda"
 module is-avail ${q2_module} || { echo "${q2_module} not avalible check config.parameters_all file" ; exit 1; }
 export q2_module
 
-# STEP X:
+#STEP X:
 multiqc_module="multiqc/1.9"
 module is-avail ${multiqc_module} || { echo "${multiqc_module} not avalible check config.parameters_all file" ; exit 1; }
 export multiqc_module
