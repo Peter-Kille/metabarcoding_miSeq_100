@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Source config script
-source arguments_param
-source config.parameters
+source config/arguments
+source config/folders
+source config/programs
 
 # Step 1: Rename and count file
 # -- Copy raw data files from sourcedir to rawdir.
@@ -29,17 +30,17 @@ if [[ "$sample_number" -eq 0 ]]; then
     exit 1
 fi
 
-# Step 2: QC - fastqc, fastp, fastqc
+#Step 2: QC - fastqc, fastp, fastqc
 # -- Run FastQC on raw data to assess data quality before trimming.
 # CORE PARAMETERS: modules, rawdir, qcdir, log
 # INPUT: rawdir
 # WORK: qcdir
 # OUTPUT: null
-#sbatch -d singleton --error="${log}/2A-rawqc_%J.err" --output="${log}/2A-rawqc_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2A-fastqc_array.sh"
+sbatch -d singleton --error="${log}/2A-rawqc_%J.err" --output="${log}/2A-rawqc_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2A-fastqc_array.sh"
 
-#sbatch -d singleton --error="${log}/2B-fastp_%J.err" --output="${log}/2B-fastp_%J.out" --"array=0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2B-fastp_array.sh"  
+sbatch -d singleton --error="${log}/2B-fastp_%J.err" --output="${log}/2B-fastp_%J.out" --"array=0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2B-fastp_array.sh"  
 
-#sbatch -d singleton --error="${log}/2C-trimqc_%J.err" --output="${log}/2C-trimqc_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2C-fastqc-trim.sh"
+sbatch -d singleton --error="${log}/2C-trimqc_%J.err" --output="${log}/2C-trimqc_%J.out" --array="0-${sample_number}%20" --job-name=${NAME} --partition=${PART} "${moduledir}/2C-fastqc-trim.sh"
 
 # Step 3: Qiime2 - import, QC
 # Input into qiime and run QC.

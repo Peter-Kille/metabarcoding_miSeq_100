@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#STEP2A-2C
+fastqc_module="fastqc/v0.11.9"
+module is-avail ${fastqc_module} || { echo "${fastqc_module} not avalible check config.parameters_all file" ; exit 1; }
+export fastqc_module
+
+#2B fastp trim
+fastp_module="fastp/v0.20"
+module is-avail ${fastp_module} || { echo "${fastp_module} not avalible check config.parameters_all file" ; exit 1; }
+export fastp_module
+
+#STEPS 4-5: QIIME 
+q2_module="qiime2/2024.10-conda"
+module is-avail ${q2_module} || { echo "${q2_module} not avalible check config.parameters_all file" ; exit 1; }
+export q2_module
+
+# STEP X:
+multiqc_module="multiqc/1.9"
+module is-avail ${multiqc_module} || { echo "${multiqc_module} not avalible check config.parameters_all file" ; exit 1; }
+export multiqc_module

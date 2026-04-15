@@ -23,6 +23,7 @@ sample_array=($samples)
 base=${sample_array[$SLURM_ARRAY_TASK_ID]}
 
 fastp -q 20 -u 10 --cut_right \
+      --detect_adapter_for_pe \
       -i ${rawdir}/${base}_1.fastq.gz \
       -I ${rawdir}/${base}_2.fastq.gz \
       -o ${trimdir}/${base}_trim_1.fastq.gz \

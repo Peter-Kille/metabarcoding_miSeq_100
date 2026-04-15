@@ -56,35 +56,26 @@ if [[ ! -d "${rawdir}" ]]; then
 fi
 export rawdir
 
-# STEP 2A: fastqc on raw data
-# qcdir="${workdir}/rawqc" 
-# if [[ ! -d "${qcdir}" ]]; then 
-#	mkdir -p "${qcdir}" 
-# fi
-# fastqc_module="fastqc/v0.11.9"
-# module is-avail ${fastqc_module} || { echo "${fastqc_module} not avalible check config.parameters_all file" ; exit 1; }
-# export fastqc_module
-# export qcdir
+#STEP 2A: fastqc on raw data
+qcdir="${workdir}/rawqc" 
+if [[ ! -d "${qcdir}" ]]; then 
+	mkdir -p "${qcdir}" 
+fi
+export qcdir
 
 #2B fastp trim
-# trimdir="${workdir}/trim_files"
-# if [[ ! -d "${trimdir}" ]]; then
-#        mkdir -p "${trimdir}"
-# fi
-# fastp_module="fastp/v0.20"
-# module is-avail ${fastp_module} || { echo "${fastp_module} not avalible check config.parameters_all file" ; exit 1; }
-# export fastp_module
-# export trimdir
+trimdir="${workdir}/trim_files"
+if [[ ! -d "${trimdir}" ]]; then
+        mkdir -p "${trimdir}"
+fi
+export trimdir
 
 #STEP 2C: qc trim reads
-# trimqc="${workdir}/trimqc"
-# if [[ ! -d "${trimqc}" ]]; then
-#        mkdir -p "${trimqc}"
-# fi
-# fastqc_module="fastqc/v0.11.9"
-# module is-avail ${fastqc_module} || { echo "${fastqc_module} not avalible check config.parameters_all file" ; exit 1; }
-# export fastqc_module
-# export trimqc
+trimqc="${workdir}/trimqc"
+if [[ ! -d "${trimqc}" ]]; then
+        mkdir -p "${trimqc}"
+fi
+export trimqc
 
 #STEP 4: QIIME INPUT and QC
 q2_input="${workdir}/q2_input"
@@ -102,9 +93,6 @@ if [[ ! -d "${q2_summary}" ]]; then
         mkdir -p "${q2_summary}"
 fi
 
-q2_module="qiime2/2024.10-conda"
-module is-avail ${q2_module} || { echo "${q2_module} not avalible check config.parameters_all file" ; exit 1; }
-export q2_module
 export q2_input
 export q2_dada2
 export q2_summary
@@ -126,14 +114,11 @@ fi
 export q2_metric
 
 # STEP X:
-# multiqcdir="${workdir}/multiqc"
-# if [[ ! -d "${multiqcdir}" ]]; then
-#        mkdir -p "${multiqcdir}"
-# fi
+multiqcdir="${workdir}/multiqc"
+if [[ ! -d "${multiqcdir}" ]]; then
+        mkdir -p "${multiqcdir}"
+fi
 
-# multiqc_module="multiqc/1.9"
-# module is-avail ${multiqc_module} || { echo "${multiqc_module} not avalible check config.parameters_all file" ; exit 1; }
-# export multiqc_module
-# export multiqcdir
+export multiqcdir
 
 
