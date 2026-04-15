@@ -1,0 +1,133 @@
+#!/bin/bash
+#arguments of parameters for metagenomic slurm pipeline
+
+# Initialize variables
+NAME=""
+PART=""
+workdir=$(pwd)/work
+manifest=""
+smetadata=""
+classifier=""
+
+# Allowed environments
+VALID_PART=("epyc" "defq" "epyc_ssd" "epyc -w f02-14" "epyc -w f02-13")
+
+# Validate partition
+validate_partition() {
+  for valid in "${VALID_PART[@]}"; do
+    [[ "$1" == "$valid" ]] && return 0
+  done
+  return 1
+}
+
+# Help message
+print_help() {
+ echo "/deploy.sh -h"
+ echo ""
+ echo "Usage: ./deploy.sh -n [NAME] -p [PARTITION] -m [MANIFEST] -s [SAMPLE_METADATA] -c [CLASSIFIER]"
+ echo ""
+ echo "Copy your paired end sequence files as .fastq.gz files in the source_data directory."
+ echo " Also copy a sample-metadata file and manifest into the source_data directory."
+ echo ""
+ echo "Manifest"
+ echo "sample-id forward-absolute-filepath   reverse-absolute-filepath"
+ echo "sample-1  /scratch/microbiome/sample1_R1.fastq.gz  /scratch/microbiome/sample1_R2.fastq.gz"
+ echo "sample-2  /scratch/microbiome/sample2_R1.fastq.gz  /scratch/microbiome/sample2_R2.fastq.gz"
+ echo ""
+ echo "sample-metadata"
+ echo ""
+ echo "REQUIRED: a trained clasifier or file to generate classier"
+ echo ""
+ echo "Options:"
+ echo " -n, --name          REQUIRED: Run name or deployment name - should be unique"
+ echo " -p, --partition     REQUIRED: Avalible partition / hpc queue (epyc, defq, jumbo, epyc_ssd)"
+ echo " -m, --manifest      REQUIRED: manifest file, sample id[tab]forward-absolute-filepath[tab]everse-absolute-filepath"
+ echo " -s, --smetadata     REQUIRED: sample-metadata"
+ echo " -c, --classifier    REQUIRED: reference condition"
+ echo " -w, --work          Optional: working dir - default is current dir /work/"
+ echo " -h, --help          Show this help message"
+ exit 0
+}
+
+# Use `getopt` to parse options
+PARSED=$(getopt -o n:p:m:s:c:w:h --long name:,partition:,manifest:,smetadata:,classifier:,work:,help -- "$@")
+if [[ $? -ne 0 ]]; then
+  echo "Failed to parse options." >&2
+  exit 1
+fi
+
+# Reorganize the positional parameters
+eval set -- "$PARSED"
+
+# Process options
+while true; do
+  case "$1" in
+    -n|--name) NAME="$2"; shift 2 ;;
+    -w|--work)  workdir="$2"; shift 2 ;;
+    -p|--partition) PART="$2"; shift 2 ;;
+    -m|--manifest) manifest="$2"; shift 2 ;;
+    -s|--smetadata) smetadata="$2"; shift 2 ;;
+    -c|--classifier) classifier="$2"; shift 2 ;;
+    -h|--help) print_help ;;
+    --) shift; break ;;
+    *) echo "Unexpected option: $1" >&2; exit 1 ;;
+  esac
+done
+
+# Check if name is set (required)
+if [[ -z "$NAME" ]]; then
+  echo "Error: -n --name is required - unque run name."
+  echo "Use --help for usage."
+  exit 1
+fi
+
+# Check if partition is set (required)
+if [[ -z "$PART" ]]; then
+  echo "Error: -p --partition is required - define the partition / hpc queue."
+  echo "Use --help for usage."
+  exit 1
+fi
+
+# Check if partition is set (required)
+if [[ -z "$manifest" ]]; then
+  echo "Error: -m --manifest file is required - define your manifest."
+  echo "Use --help for usage."
+  exit 1
+fi
+
+# Check if treatment is set (required)
+#if [[ -z "$smetadata" ]]; then
+#  echo "Error: -s --smetadata file is required - define your sample metadata."
+#  echo "Use --help for usage."
+#  exit 1
+#fi
+
+# Check if classifier is set (required)
+#if [[ -z "$classifier" ]]; then
+#  echo "Error: -c --classifier file is required - needed for taxanomic classification."
+#  echo "Use --help for usage."
+#  exit 1
+#fi
+
+# Validate partition if provided
+if [[ -n "$PART" ]] && ! validate_partition "$PART"; then
+  echo "Error: Invalid parition '$PART'."
+  echo "Allowed partitions: ${VALID_PART[*]}"
+  exit 1
+fi
+
+# Output arguments
+echo "Run name (unique): ${NAME}"
+echo "Partition: ${PART}"
+echo "Working directory: ${workdir}"
+echo "Manifest file: ${manifest}"
+echo "Sample Metadata file: ${smetadata}"
+echo "Classifier: ${classifier}"
+
+#export arguements
+export NAME
+export PART
+export workdir
+export manifest
+export smetadata
+export classifier

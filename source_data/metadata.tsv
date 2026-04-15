@@ -1,0 +1,14 @@
+sample-id	site	year	month	day	location	reported-spray-usage	days-since-experiment-start
+#q2:types	categorical	numeric	numeric	numeric	categorical	categorical	numeric
+A201I_S673	site1	2025	5	21	hedge	Yes	0
+A202I_S681	site1	2025	5	21	hedge	Yes	7
+A203I_S689	site1	2025	5	21	hedge	Yes	14
+A204I_S697	site2	2025	5	21	field	Yes	0
+A205I_S705	site2	2025	5	21	field	Yes	7
+A206I_S713	site2	2025	5	21	field	Yes	14
+A207I_S721	site3	2025	5	21	hedge	No	0
+A208I_S729	site3	2025	5	21	hedge	No	7
+A209I_S737	site3	2025	5	21	hedge	No	14
+A210I_S745	site4	2025	5	21	field	No	0
+A211I_S753	site4	2025	5	21	field	No	7
+A212I_S761	site4	2025	5	21	field	No	14
