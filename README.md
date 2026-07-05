@@ -11,7 +11,7 @@ A SLURM pipeline designed for paried end illumina reads analysed with qiime2 (ht
 1. Install the metagenome_slurm resources into your HPC cluster directory in which you will be performing the assembly:  
 
 ```
-git clone https://github.com/Peter-Kille/metabarcoding.git
+git clone https://github.com/Peter-Kille/metabarcoding_miSeq_100.git
 ```
 
 2. Put the raw reads, sample-metadata and manifest in `source_data` folder.
@@ -22,7 +22,7 @@ git clone https://github.com/Peter-Kille/metabarcoding.git
 
 4. you can you './deploy.sh -h' for help (see below)
 
-## Available displayed arguments:git@github.com:Peter-Kille/metabarcoding.git
+## Available displayed arguments:https://github.com/Peter-Kille/metabarcoding_miSeq_100.git
 ```
 ./deploy.sh -h
 
@@ -42,13 +42,17 @@ sample-metadata
   REQUIRED: a trained clasifier or file to generate traninged classier
 
 Options:
-  -n, --name          REQUIRED: Run name or deployment name - should be unique
-  -p, --partition     REQUIRED: Avalible partition / hpc queue (epyc, defq, jumbo, epyc_ssd)
-  -m, --manifest      REQUIRED: manifest file, sample id[tab]forward-absolute-filepath[tab]everse-absolute-filepath
-  -t, --smetadata     REQUIRED: sample-metadata
-  -c, --classifier    REQUIRED: reference condition
-  -w, --work          Optional: working dir - default is current dir /work/
-  -h, --help          Show this help message
+
+Options:
+ -n, --name          REQUIRED: Run name or deployment name - should be unique
+ -p, --partition     REQUIRED: Avalible partition / hpc queue (epyc, defq, epyc_ssd)
+ -m, --manifest      REQUIRED: manifest file, sample id[tab]forward-absolute-filepath[tab]everse-absolute-filepath
+ -s, --smetadata     REQUIRED: sample-metadata
+ -c, --classifier    REQUIRED: reference condition
+ -f, --forwardprimer Optional: Provides forward primer 5' - 3' can include IUPAC codes but ensure Inosine base is represented by N - default is 16S-515F
+ -r, --reverseprimer Optional: Provides forward primer 5' - 3' can include IUPAC codes but ensure Inosine base is represented by N - default is 16S-806R
+ -w, --work          Optional: working dir - default is current dir /work/
+ -h, --help          Show this help message
 ```
  **Note:**
 - You can run the pipeline multiple times simultaneously with different raw reads, simply repeat the installation process in a different directory and `./deploy` with a different run names identifier name.
