@@ -18,13 +18,16 @@ echo "\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}"
 cat $0
 
 module load ${cutadapt_module}
+module load ${seqtk_module}
+
+seqtk seq -r ${rp} ${rcrp}
 
 sample_array=($samples)
 base=${sample_array[$SLURM_ARRAY_TASK_ID]}
 
 cutadapt --cores ${SLURM_CPUS_PER_TASK} \
-	-g ^GTGCCAGCMGCCGCGGTAA \
-	-a GGACTACHVGGGTWTCTAAT$ \
+	-g ^"${fp}" \
+	-a "${rcrp}"$ \
 	-e 0.1 \
 	-q 30 \
 	--minimum-length 240 \

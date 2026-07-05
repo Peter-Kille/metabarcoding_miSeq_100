@@ -15,6 +15,10 @@ cutadapt_module="cutadapt/4.1"
 module is-avail ${cutadapt_module} || { echo "${cutadapt_module} not avalible check config.parameters_all file" ; exit 1; }
 export cutadapt_module
 
+seqtk_module="seqtk/v1.3"
+module is-avail ${seqtk_module} || { echo "${seqtk_module} not avalible check config.parameters_all file" ; exit 1; }
+export seqtk_module
+
 #STEPS 4-5: QIIME 
 q2_module="qiime2/2024.10-conda"
 module is-avail ${q2_module} || { echo "${q2_module} not avalible check config.parameters_all file" ; exit 1; }

@@ -8,6 +8,8 @@ workdir=$(pwd)/work
 manifest=""
 smetadata=""
 classifier=""
+fp="GTGCCAGCMGCCGCGGTAA"
+rp="GGACTACHVGGGTWTCTAAT"
 
 # Allowed environments
 VALID_PART=("epyc" "defq" "epyc_ssd" "epyc -w f02-14" "epyc -w f02-13")
@@ -44,13 +46,17 @@ print_help() {
  echo " -m, --manifest      REQUIRED: manifest file, sample id[tab]forward-absolute-filepath[tab]everse-absolute-filepath"
  echo " -s, --smetadata     REQUIRED: sample-metadata"
  echo " -c, --classifier    REQUIRED: reference condition"
+ echo " -f, --forwardprimer Optional: Provides forward primer 5' - 3' can include IUPAC codes but ensure Inosine base is represented by N - default is 16S-515F"
+ echo " -r, --reverseprimer Optional: Provides forward primer
+5' - 3' can include IUPAC codes but ensure Inosine base is rep
+resented by N - default is 16S-806R"
  echo " -w, --work          Optional: working dir - default is current dir /work/"
  echo " -h, --help          Show this help message"
  exit 0
 }
 
 # Use `getopt` to parse options
-PARSED=$(getopt -o n:p:m:s:c:w:h --long name:,partition:,manifest:,smetadata:,classifier:,work:,help -- "$@")
+PARSED=$(getopt -o n:p:m:s:c:w:f:r:h --long name:,partition:,manifest:,smetadata:,classifier:,work:,forwardprimer:,reverseprimer:,help -- "$@")
 if [[ $? -ne 0 ]]; then
   echo "Failed to parse options." >&2
   exit 1
@@ -68,6 +74,8 @@ while true; do
     -m|--manifest) manifest="$2"; shift 2 ;;
     -s|--smetadata) smetadata="$2"; shift 2 ;;
     -c|--classifier) classifier="$2"; shift 2 ;;
+    -f|--forwardprimer) forwardprimer="$2"; shift 2 ;;
+    -r|--reverseprimer) reverseprimer="$2"; shift 2 ;;
     -h|--help) print_help ;;
     --) shift; break ;;
     *) echo "Unexpected option: $1" >&2; exit 1 ;;
@@ -88,26 +96,26 @@ if [[ -z "$PART" ]]; then
   exit 1
 fi
 
-# Check if partition is set (required)
+# Check if manifest is set (required)
 if [[ -z "$manifest" ]]; then
   echo "Error: -m --manifest file is required - define your manifest."
   echo "Use --help for usage."
   exit 1
 fi
 
-# Check if treatment is set (required)
-#if [[ -z "$smetadata" ]]; then
-#  echo "Error: -s --smetadata file is required - define your sample metadata."
-#  echo "Use --help for usage."
-#  exit 1
-#fi
+# Check if metadata is set (required)
+if [[ -z "$smetadata" ]]; then
+  echo "Error: -s --smetadata file is required - define your sample metadata."
+  echo "Use --help for usage."
+  exit 1
+fi
 
 # Check if classifier is set (required)
-#if [[ -z "$classifier" ]]; then
-#  echo "Error: -c --classifier file is required - needed for taxanomic classification."
-#  echo "Use --help for usage."
-#  exit 1
-#fi
+if [[ -z "$classifier" ]]; then
+  echo "Error: -c --classifier file is required - needed for taxanomic classification."
+  echo "Use --help for usage."
+  exit 1
+fi
 
 # Validate partition if provided
 if [[ -n "$PART" ]] && ! validate_partition "$PART"; then
@@ -123,6 +131,8 @@ echo "Working directory: ${workdir}"
 echo "Manifest file: ${manifest}"
 echo "Sample Metadata file: ${smetadata}"
 echo "Classifier: ${classifier}"
+echo "forwardprimer: ${fp}"
+echo "reverseprimer: ${rp}"
 
 #export arguements
 export NAME
@@ -131,3 +141,5 @@ export workdir
 export manifest
 export smetadata
 export classifier
+export fp
+export rp
