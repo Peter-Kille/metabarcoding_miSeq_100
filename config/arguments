@@ -47,9 +47,7 @@ print_help() {
  echo " -s, --smetadata     REQUIRED: sample-metadata"
  echo " -c, --classifier    REQUIRED: reference condition"
  echo " -f, --forwardprimer Optional: Provides forward primer 5' - 3' can include IUPAC codes but ensure Inosine base is represented by N - default is 16S-515F"
- echo " -r, --reverseprimer Optional: Provides forward primer
-5' - 3' can include IUPAC codes but ensure Inosine base is rep
-resented by N - default is 16S-806R"
+ echo " -r, --reverseprimer Optional: Provides forward primer 5' - 3' can include IUPAC codes but ensure Inosine base is represented by N - default is 16S-806R"
  echo " -w, --work          Optional: working dir - default is current dir /work/"
  echo " -h, --help          Show this help message"
  exit 0
