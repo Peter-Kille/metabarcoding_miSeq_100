@@ -24,7 +24,12 @@ tail -n +2 ${sourcedir}/"${manifest}" | while IFS=$',' read -r sample file; do
 
 printf "${sample}\t${cutdir}/${file}_merge_cut.fastq.gz\n" >> ${sourcedir}/working_manifest.tsv
 
-cp ${sourcedir}/${file}_R1.fastq.gz ${rawdir}/${file}_1.fastq.gz
-cp ${sourcedir}/${file}_R2.fastq.gz ${rawdir}/${file}_2.fastq.gz
-
+if [[ "$file" =~ (_R1)\.fastq\.gz$ ]]; then
+        cp ${sourcedir}/${file}_R1.fastq.gz ${rawdir}/${file}_1.fastq.gz
+	cp ${sourcedir}/${file}_R2.fastq.gz ${rawdir}/${file}_2.fastq.gz
+    else
+        cp ${sourcedir}/${file}_1.fastq.gz ${rawdir}/${file}_1.fastq.gz
+        cp ${sourcedir}/${file}_2.fastq.gz ${rawdir}/${file}_2.fastq.gz
+    fi
 done
+
