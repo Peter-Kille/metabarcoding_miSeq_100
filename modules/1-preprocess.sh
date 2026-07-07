@@ -20,16 +20,15 @@ touch ${sourcedir}/working_manifest.csv
 
 printf "sample-id\tabsolute-filepath\n" >> ${sourcedir}/working_manifest.tsv
 
-tail -n +2 ${sourcedir}/"${manifest}" | while IFS=$',' read -r sample file; do
+tail -n +2 ${sourcedir}/"${manifest}" | while read -a file; do
 
-printf "${sample}\t${cutdir}/${file}_merge_cut.fastq.gz\n" >> ${sourcedir}/working_manifest.tsv
+printf "${file[0]}\t${cutdir}/${file[0]}_merge_cut.fastq.gz\n" >> ${sourcedir}/working_manifest.tsv
 
-if [[ "$file" =~ (_R1)\.fastq\.gz$ ]]; then
-        cp ${sourcedir}/${file}_R1.fastq.gz ${rawdir}/${file}_1.fastq.gz
-	cp ${sourcedir}/${file}_R2.fastq.gz ${rawdir}/${file}_2.fastq.gz
-    else
-        cp ${sourcedir}/${file}_1.fastq.gz ${rawdir}/${file}_1.fastq.gz
-        cp ${sourcedir}/${file}_2.fastq.gz ${rawdir}/${file}_2.fastq.gz
-    fi
+forread=$(basename ${file[1]})
+revread=$(basename ${file[2]})
+
+cp ${sourcedir}/${forread} ${rawdir}/${file}_1.fastq.gz
+cp ${sourcedir}/${revread} ${rawdir}/${file}_2.fastq.gz
+
 done
 
