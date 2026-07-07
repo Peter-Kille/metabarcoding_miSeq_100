@@ -27,8 +27,8 @@ printf "${file[0]}\t${cutdir}/${file[0]}_merge_cut.fastq.gz\n" >> ${sourcedir}/w
 forread=$(basename ${file[1]})
 revread=$(basename ${file[2]})
 
-cp ${sourcedir}/${forread} ${rawdir}/${file}_1.fastq.gz
-cp ${sourcedir}/${revread} ${rawdir}/${file}_2.fastq.gz
+cp ${sourcedir}/${forread} ${rawdir}/${file[0]}_1.fastq.gz
+cp ${sourcedir}/${revread} ${rawdir}/${file[0]}_2.fastq.gz
 
 done
 
