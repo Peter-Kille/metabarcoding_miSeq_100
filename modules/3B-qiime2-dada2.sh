@@ -35,6 +35,11 @@ qiime metadata tabulate \
 # comment ASV_feature-table output uses sample nsmes as column headers - to swap these for those given in metadata file see R script in scripts folder
 
 qiime tools export \
+        --input-path "${q2_dada2}/${NAME}_asv-seqs.qza" \
+        --output-path "${q2_dada2}/${NAME}_asv-seqs.fasta"
+
+
+qiime tools export \
 	--input-path "${q2_dada2}/${NAME}_asv-table.qza" \
 	--output-path "${q2_dada2}"
 

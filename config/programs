@@ -10,14 +10,16 @@ fastp_module="fastp/0.23.4-mr6qifo"
 module is-avail ${fastp_module} || { echo "${fastp_module} not avalible check config.parameters_all file" ; exit 1; }
 export fastp_module
 
-#2D cutadapt
-cutadapt_module="cutadapt/4.1"
-module is-avail ${cutadapt_module} || { echo "${cutadapt_module} not avalible check config.parameters_all file" ; exit 1; }
-export cutadapt_module
+#2D Reverse Complement
 
 seqtk_module="seqtk/v1.3"
 module is-avail ${seqtk_module} || { echo "${seqtk_module} not avalible check config.parameters_all file" ; exit 1; }
 export seqtk_module
+
+#2E cutadapt
+cutadapt_module="cutadapt/4.1"
+module is-avail ${cutadapt_module} || { echo "${cutadapt_module} not avalible check config.parameters_all file" ; exit 1; }
+export cutadapt_module
 
 #STEPS 4-5: QIIME 
 q2_module="qiime2/2024.10-conda"
