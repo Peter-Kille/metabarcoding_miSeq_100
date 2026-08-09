@@ -37,7 +37,6 @@ qiime diversity alpha-rarefaction \
   --m-metadata-file "${sourcedir}/${smetadata}" \
   --o-visualization "${q2_metric}/${NAME}_4000_alpha-rarefaction.qzv"
 
-
 qiime diversity alpha-rarefaction \
   --i-table "${q2_dada2}/${NAME}_asv-table.qza" \
   --i-phylogeny "${q2_metric}/${NAME}_rooted-tree.qza" \

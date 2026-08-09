@@ -20,7 +20,7 @@ cat $0
 # Load some modules
 module load ${q2_module}
 
-qiime feature-table summarize-plus \
+qiime feature-table summarize \
   --i-table "${q2_dada2}/${NAME}_asv-table.qza" \
   --m-metadata-file "${sourcedir}/${smetadata}" \
   --o-summary "${q2_summary}/${NAME}_asv-table.qzv" \

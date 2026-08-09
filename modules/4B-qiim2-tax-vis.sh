@@ -33,6 +33,11 @@ qiime taxa barplot \
   --m-metadata-file "${sourcedir}/${smetadata}" \
   --o-visualization "${q2_tax}/${NAME}-taxa-bar-plots.qzv"
 
-qiime asv2tax tabulate \
+qiime metadata tabulate \
   --m-input-file "${q2_tax}/${NAME}-taxonomy.qza" \
-  --o-visualization "${q2_tax}/${NAME}-taxonomy.qzv"
+  --o-visualization "${q2_tax}/${NAME}-taxonomy-summary.qzv
+
+qiime feature-table tabulate-seqs \
+  --i-data "${q2_dada2}/${NAME}_asv-seqs.qza" \
+  --i-taxonomy "${q2_tax}/${NAME}-taxonomy.qza" \
+  --o-visualization "${q2_tax}/${NAME}-tabulated-sequences.qzv"

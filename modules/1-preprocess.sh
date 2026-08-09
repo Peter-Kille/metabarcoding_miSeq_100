@@ -16,7 +16,11 @@ echo "\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}"
 echo "\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}"
 
 # read in sample and read names and move and rename samples into workdir
-touch ${sourcedir}/working_manifest.csv
+
+
+[ -f ${sourcedir}/working_manifest.tsv ] && rm ${sourcedir}/working_manifest.tsv
+
+touch ${sourcedir}/working_manifest.tsv
 
 printf "sample-id\tabsolute-filepath\n" >> ${sourcedir}/working_manifest.tsv
 
