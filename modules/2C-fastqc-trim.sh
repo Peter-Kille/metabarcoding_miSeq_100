@@ -2,7 +2,7 @@
 #SBATCH --nodes=1              # number of nodes to use
 #SBATCH --tasks-per-node=1     #
 #SBATCH --cpus-per-task=4      #   
-#SBATCH --mem-per-cpu=2000     # in megabytes, unless unit explicitly stated
+#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated
 
 echo "Some Usable Environment Variables:"
 echo "================================="
