@@ -46,7 +46,6 @@ qiime feature-classifier extract-reads \
   --i-sequences ${workdir}/${classifier}-seqs.qza \
   --p-f-primer CCHGAYATRGCHTTYCCHCG \
   --p-r-primer TCDGGRTGNCCRAARAAYCA \
-  --p-trunc-len 120 \
   --p-min-length 100 \
   --p-max-length 500 \
   --p-n-jobs ${SLURM_CPUS_PER_TASK} \
